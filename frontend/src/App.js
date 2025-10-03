@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";  // Cambié 'Switch' por 'Routes'
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
-import { Dashboard } from './pages/Dashboard';  // Asegúrate de que Dashboard esté exportado correctamente
+import { Dashboard } from './pages/Dashboard';  
 import Statements from "./pages/Statements";
 import PaymentHistory from "./pages/PaymentHistory";
 import PaymentMethods from "./pages/PaymentMethods";
