@@ -2,7 +2,7 @@ import React from "react";
 import Card from "../components/Card";
 import Table from "../components/Table";
 
-export const Dashboard = () => {
+export const Dashboard = ({ onLogout }) => {
   const dummyData = {
     balance: "$4,500.00",
     paymentsDue: "$300.00",
@@ -30,6 +30,7 @@ export const Dashboard = () => {
             <li key={index}>{notification}</li>
           ))}
         </ul>
+        <button onClick={onLogout}>Cerrar sesión</button>
       </div>
     </div>
   );
