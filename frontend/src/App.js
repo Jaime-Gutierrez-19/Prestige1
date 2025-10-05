@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
-import { Dashboard } from './pages/Dashboard';  
+import { Dashboard } from './pages/Dashboard';  
 import Statements from "./pages/Statements";
 import PaymentHistory from "./pages/PaymentHistory";
 import PaymentMethods from "./pages/PaymentMethods";
@@ -13,21 +13,31 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);  // Estado de autenticación
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
 
-  // Función de logout
   const handleLogout = () => {
     setIsAuthenticated(false);
-    navigate("/"); // Redirige al Login
+    navigate("/"); 
   };
 
-  // Función de login (esto simula la autenticación)
   const handleLogin = () => {
     setIsAuthenticated(true);
-    navigate("/dashboard");  // Redirige al Dashboard
+    navigate("/dashboard"); 
   };
 
+  if (!isAuthenticated) {
+    
+    return (
+      <Routes>
+        <Route path="/" element={<Login setIsAuthenticated={handleLogin} />} />
+        <Route path="/register" element={<Register setIsAuthenticated={handleLogin} />} />
+        <Route path="*" element={<Login setIsAuthenticated={handleLogin} />} />
+      </Routes>
+    );
+  }
+
+  
   return (
     <div className="d-flex h-100">
       <Sidebar />
@@ -35,22 +45,15 @@ const App = () => {
         <Header />
         <div className="container-fluid p-4">
           <Routes>
-            {/* Si el usuario no está autenticado, redirige al Login */}
-            <Route path="/" element={isAuthenticated ? <Dashboard onLogout={handleLogout} /> : <Login setIsAuthenticated={handleLogin} />} />
-            
-            {/* Registro, si ya está autenticado redirige al Dashboard */}
-            <Route path="/register" element={isAuthenticated ? <Dashboard onLogout={handleLogout} /> : <Register setIsAuthenticated={handleLogin} />} />
-            
-            {/* Dashboard está protegido */}
-            <Route path="/dashboard" element={isAuthenticated ? <Dashboard onLogout={handleLogout} /> : <Login setIsAuthenticated={handleLogin} />} />
-            
-            {/* Otras rutas */}
+            <Route path="/dashboard" element={<Dashboard onLogout={handleLogout} />} />
             <Route path="/statements" element={<Statements />} />
             <Route path="/payment-history" element={<PaymentHistory />} />
             <Route path="/payment-methods" element={<PaymentMethods />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/contracts" element={<Contracts />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/" element={<Dashboard onLogout={handleLogout} />} />
+            <Route path="*" element={<Dashboard onLogout={handleLogout} />} />
           </Routes>
         </div>
       </div>
