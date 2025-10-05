@@ -11,6 +11,7 @@ import Contracts from "./pages/Contracts";
 import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import ForgotPassword from "./pages/ForgotPassword";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -54,6 +55,7 @@ const App = () => {
             <Route path="/settings" element={<Settings />} />
             <Route path="/" element={<Dashboard onLogout={handleLogout} />} />
             <Route path="*" element={<Dashboard onLogout={handleLogout} />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
           </Routes>
         </div>
       </div>
