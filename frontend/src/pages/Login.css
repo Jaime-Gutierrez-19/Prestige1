@@ -1,7 +1,6 @@
 :root{
-  /* Azul de referencia (ajústalo si lo quieres más claro/oscuro) */
-  --brand-blue: #1f7ed1;   /* cuerpo del shape */
-  --brand-blue-dark: #0f6fc6; /* borde y sombras */
+  --brand-blue: #1f7ed1; 
+  --brand-blue-dark: #0f6fc6; 
   --text-dark: #0f1b2d;
   --muted: #6b7a90;
   --accent: #1f7ed1;
@@ -21,7 +20,6 @@ body{ background: var(--bg); font-family: 'Montserrat', Arial, sans-serif; color
   position: relative;
 }
 
-/* Navbar */
 .hero-nav{
   height: 70px;
   padding: 0 22px;
@@ -34,7 +32,6 @@ body{ background: var(--bg); font-family: 'Montserrat', Arial, sans-serif; color
   background: transparent; border: none; font-size: 20px; margin-left: 10px; cursor: pointer;
 }
 
-/* Contenido principal: 2 columnas */
 .hero-content{
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -44,7 +41,6 @@ body{ background: var(--bg); font-family: 'Montserrat', Arial, sans-serif; color
   position: relative;
 }
 
-/* Columna izquierda (texto) */
 .hero-left{
   z-index: 1;
   padding-left: 0.6rem;
@@ -67,14 +63,12 @@ body{ background: var(--bg); font-family: 'Montserrat', Arial, sans-serif; color
   font-weight: 600; padding: 0 0 4px; cursor: pointer;
 }
 
-/* Columna derecha (shape + formulario) */
 .hero-right{
   position: relative;
   height: 520px;
   display:flex; align-items:center; justify-content:center;
 }
 
-/* Shape diagonal azul (fondo) */
 .hero-right::before{
   content: "";
   position: absolute;
@@ -87,18 +81,17 @@ body{ background: var(--bg); font-family: 'Montserrat', Arial, sans-serif; color
   box-shadow: -10px 10px 30px rgba(18, 82, 150, .25) inset;
 }
 
-/* Camión / imagen decorativa */
-.truck{
+.cheff {
   position: absolute;
-  top: 18%;
-  left: 10%;
+  top: -20%;
+  left: -40%;
+  transform: translate(-50%, 0);
   width: clamp(180px, 38vw, 360px);
   z-index: 1;
   filter: drop-shadow(0 10px 18px rgba(0,0,0,.15));
   pointer-events: none;
 }
 
-/* Tarjeta de cotización / login */
 .quote-card{
   position: relative;
   z-index: 2;
@@ -116,12 +109,12 @@ body{ background: var(--bg); font-family: 'Montserrat', Arial, sans-serif; color
 .quote-head h3{
   color: #f3f7fd; font-size: 18px; margin: 4px 0 12px; font-weight: 700;
 }
-/* Para contrastar con el azul de fondo, ponemos encabezado sobre una franja */
+
 .quote-head{
   background: transparent; color: #fff; margin: -18px -18px 14px; padding: 14px 18px 6px;
 }
 
-/* Campos */
+
 .quote-form input{
   width: 100%;
   height: 42px;
@@ -134,7 +127,6 @@ body{ background: var(--bg); font-family: 'Montserrat', Arial, sans-serif; color
 }
 .quote-form input:focus{ border-color: var(--brand-blue); box-shadow: 0 0 0 3px rgba(31,126,209,.12); }
 
-/* Mensaje de error */
 .login-error{
   background: #ffeaea;
   color: #b11c3a;
@@ -145,7 +137,6 @@ body{ background: var(--bg); font-family: 'Montserrat', Arial, sans-serif; color
   border: 1px solid #ed818b44;
 }
 
-/* Botón principal */
 .primary-btn{
   width: 100%;
   height: 42px;
@@ -159,21 +150,31 @@ body{ background: var(--bg); font-family: 'Montserrat', Arial, sans-serif; color
 .primary-btn:hover{ background:#1e2025; box-shadow: 0 6px 18px rgba(0,0,0,.2); }
 .primary-btn:active{ transform: translateY(1px); }
 
-/* Responsivo */
-@media (max-width: 980px){
-  .hero-content{ grid-template-columns: 1fr; gap: 10px; }
-  .hero-right{ order: -1; height: 440px; }
-  .hero-right::before{ inset: -120px -40px -120px -20px; }
-  .truck{ left: 6%; top: 22%; }
-  .hero-left{ text-align: left; }
-}
-@media (max-width: 520px){
-  .hero-right{ height: 380px; }
-  .truck{ width: clamp(160px, 60vw, 280px); top: 26%; left: 4%; }
-  .quote-card{ width: 92%; padding: 16px; }
+@media (max-width: 1200px){
+  .truck, .cheff {
+    left: 78%;
+    top: 23%;
+  }
 }
 
-/* Coloca esto junto con el CSS del hero que te compartí */
+@media (max-width: 980px){
+  .truck, .cheff {
+    left: 87%;
+    top: 32%;
+    width: clamp(160px, 52vw, 320px);
+  }
+}
+
+@media (max-width: 520px){
+  .truck, .cheff {
+    left: 91%;
+    top: auto;
+    bottom: 4px;
+    width: clamp(120px, 70vw, 210px);
+  }
+}
+
+
 .login-card{
   position: relative;
   z-index: 2;

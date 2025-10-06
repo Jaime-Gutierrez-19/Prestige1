@@ -34,8 +34,8 @@ const Login = ({ setIsAuthenticated }) => {
       <main className="hero-content">
         <section className="hero-left">
           <h1>
-            <span>La mejor</span><br/>
-            <span className="accent">experiencia</span>
+            <span>ROYAL</span><br/>
+            <span className="accent">PRESTIGE</span>
           </h1>
           <p className="subcopy">
             Revisa tus estados de cuenta, realiza pagos y gestiona tus métodos
@@ -47,9 +47,8 @@ const Login = ({ setIsAuthenticated }) => {
         </section>
 
         <section className="hero-right">
-          <img className="truck" src="/truck.png" alt="truck" />
+          <img className="cheff" src="./cheff1.png" alt="cheff" />
 
-          {/* AQUÍ va exactamente tu recuadro de login */}
           <div className="login-card">
             <h5 style={{ fontWeight: 700, marginBottom: 16 }}>Iniciar sesión</h5>
 
