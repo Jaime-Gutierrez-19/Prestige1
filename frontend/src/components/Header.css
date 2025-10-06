@@ -1,0 +1,41 @@
+.header {
+  background: #2266c1;
+  color: #fff;
+  padding: 1.4rem 2.2rem 1.4rem 240px; /* left padding igual ancho de Sidebar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 70px;
+  box-shadow: 0 2px 18px rgba(40,80,160,0.10);
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.header-left {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.header-right .btn-header {
+  background-color: #ed818b;
+  border: none;
+  border-radius: 22px;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  box-shadow: 0 2px 13px rgba(220,50,90,0.11);
+  transition: background 0.15s;
+  cursor: pointer;
+}
+.header-right .btn-header:hover {
+  background: #ba3057;
+}
+
+@media (max-width: 900px) {
+  .header {
+    padding-left: 145px;
+    font-size: 1rem;
+  }
+}

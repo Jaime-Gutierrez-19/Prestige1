@@ -1,34 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import './Sidebar.css'; 
 
 const Sidebar = () => {
+  const location = useLocation();
   return (
-    <div className="col-md-3 col-lg-2 bg-dark text-white p-4">
-      <h2 className="mb-4">Royal Prestige</h2>
-      <ul className="list-unstyled">
-        <li>
-          <Link to="/dashboard" className="text-white d-block py-2">Dashboard</Link>
-        </li>
-        <li>
-          <Link to="/statements" className="text-white d-block py-2">Estados de cuenta</Link>
-        </li>
-        <li>
-          <Link to="/payment-history" className="text-white d-block py-2">Historial de pagos</Link>
-        </li>
-        <li>
-          <Link to="/payment-methods" className="text-white d-block py-2">Métodos de pago</Link>
-        </li>
-        <li>
-          <Link to="/profile" className="text-white d-block py-2">Perfil</Link>
-        </li>
-        <li>
-          <Link to="/contracts" className="text-white d-block py-2">Contratos</Link>
-        </li>
-        <li>
-          <Link to="/settings" className="text-white d-block py-2">Configuración</Link>
-        </li>
+    <div className="sidebar">
+      <div className="sidebar-logo mb-4">
         
-      </ul>
+        <img src="/logor.png" alt="Royal Prestige" style={{width: '75px'}}/> 
+        <h2 className="sidebar-title">Royal<br/>Prestige</h2>
+      </div>
+      <nav>
+        <Link to="/dashboard" className={location.pathname === "/dashboard" ? "active" : ""}>Dashboard</Link>
+        <Link to="/statements" className={location.pathname === "/statements" ? "active" : ""}>Estados de cuenta</Link>
+        <Link to="/payment-history" className={location.pathname === "/payment-history" ? "active" : ""}>Historial de pagos</Link>
+        <Link to="/payment-methods" className={location.pathname === "/payment-methods" ? "active" : ""}>Métodos de pago</Link>
+        <Link to="/profile" className={location.pathname === "/profile" ? "active" : ""}>Perfil</Link>
+        <Link to="/contracts" className={location.pathname === "/contracts" ? "active" : ""}>Contratos</Link>
+        <Link to="/settings" className={location.pathname === "/settings" ? "active" : ""}>Configuración</Link>
+      </nav>
     </div>
   );
 };

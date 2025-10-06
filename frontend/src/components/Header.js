@@ -1,13 +1,17 @@
 import React from "react";
-import { useAuth } from "../context/AuthContext"; 
+import "./Header.css"; // No olvides crear este archivo
 
-const Header = () => {
-  const { logout } = useAuth();
-
+const Header = ({ onLogout }) => {
   return (
-    <header className="bg-dark text-white d-flex justify-content-between align-items-center p-3">
-      <h1 className="h5 mb-0">Bienvenido, usuario</h1>
-      <button className="btn btn-danger" onClick={logout}>Cerrar sesión</button>
+    <header className="header">
+      <div className="header-left">
+        <span className="header-welcome">Bienvenido, usuario</span>
+      </div>
+      <div className="header-right">
+        <button className="btn-header" onClick={onLogout}>
+          Cerrar sesión
+        </button>
+      </div>
     </header>
   );
 };

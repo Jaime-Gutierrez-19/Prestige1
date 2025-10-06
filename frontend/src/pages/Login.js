@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Login.css"; 
 
 const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState("");
@@ -17,80 +18,86 @@ const Login = ({ setIsAuthenticated }) => {
   };
 
   return (
-    <div className="container my-5">
-      <h2 className="text-center mb-4" style={{ color: "#b0b0b0" }}>
-        ACCESO A LA CUENTA DEL CLIENTE
-      </h2>
-      <div className="mb-4">
-        <p>
-          Bienvenido al portal de Servicio al Cliente de Hy Cite. Aquí usted puede ver sus estados de cuenta electrónicos, hacer sus pagos, administrar su cuenta y más.
-        </p>
-        <p>
-          <b>Estados de Cuenta Electrónicos (Sin Papel):</b> Reciba cada mes un correo electrónico recordatorio, dejándole saber cuándo está disponible su nuevo estado de cuenta. Acceso a más de 12 meses de estados de cuenta electrónicos en un formato fácil de ver. El sistema electrónico implica menos malistas y menos consumo de papel. ¡Además es una gran manera de conservar el ecosistema!
-        </p>
-        <p>
-          <b>Pagos en Línea:</b> Ahorre tiempo, cheques y gastos de envío, haciendo sus pagos a través de nuestra segura página Web. Programa pagos automáticos y despreocúpese.
-        </p>
-        <p>
-          <b>Administración de Cuentas:</b> Vea su orden e historial de pago, haga seguimiento a la entrega de sus pedidos, y reciba notificaciones de nuevos productos y ofertas especiales.
-        </p>
+    <div className="login-page">
+      <div className="login-left">
+     
+        <div className="login-logo">
+          
+          <img src="/royal.png" alt="Royal Prestige" style={{width:"200px"}} />
+        </div>
+        <div className="login-info">
+          <h2>La aplicación que te conecta con Royal Prestige</h2>
+          <ul>
+            <li>Revisa tus estados de cuenta y controla mejor tu cuenta</li>
+            <li>Paga tus servicios y haz compras seguras</li>
+            <li>Realiza pagos y consulta tus beneficios</li>
+            <li>Consulta la información de tu cuenta y pagos</li>
+            <li>Administra tus métodos de pago</li>
+          </ul>
+          <button className="btn btn-outline-light btn-lg mt-3">Conoce más</button>
+        </div>
       </div>
-      <div className="row justify-content-center">
-        <div className="col-sm-6 border rounded p-4 m-2">
-          <h5 className="mb-4">Usuarios Registrados: Iniciar Sesión</h5>
+      <div className="login-right">
+        <div className="login-card">
+          <h5 style={{ fontWeight: 700, marginBottom: 16 }}>Iniciar sesión</h5>
           <form onSubmit={handleLogin}>
-            <input
-              className="form-control mb-2"
-              type="email"
-              placeholder="Correo electrónico"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <input
-              className="form-control mb-3"
-              type="password"
-              placeholder="Contraseña"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <button type="submit" className="btn btn-primary w-100">
-              Iniciar sesión
+            <div className="form-floating mb-2">
+              <input
+                className="form-control"
+                type="email"
+                id="inputEmail"
+                placeholder="Correo electrónico"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <label htmlFor="inputEmail">Correo electrónico</label>
+            </div>
+            <div className="form-floating mb-2">
+              <input
+                className="form-control"
+                type="password"
+                id="inputPass"
+                placeholder="Contraseña"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <label htmlFor="inputPass">Contraseña</label>
+            </div>
+            <button type="submit" className="btn login-btn w-100">
+              Ingresar
             </button>
           </form>
-          <div className="mt-3">
+          <div className="login-links mt-3">
             <button
-        type="button"
-        className="btn btn-link"
-        onClick={() => navigate("/forgot-password")}
-        style={{ padding: 0 }}
-      >
-        ¿Olvidó su contraseña?
-      </button>
+              type="button"
+              className="btn btn-link"
+              onClick={() => navigate("/forgot-password")}
+              style={{ padding: 0, color: "#ed818b", fontWeight: 500 }}
+            >
+              Recuperar contraseña
+            </button>
             <br />
-             <button
-        type="button"
-        className="btn btn-link"
-        onClick={() => navigate("/forgot-password")}
-        style={{ padding: 0 }}
-      >
-        ¿Olvidó su identificación de usuario?
-      </button>
-            
+            <button
+              type="button"
+              className="btn btn-link"
+              onClick={() => navigate("/forgot-username")}
+              style={{ padding: 0, color: "#ed818b", fontWeight: 500 }}
+            >
+              ¿Olvidaste tu usuario?
+            </button>
           </div>
-        </div>
-        <div className="col-sm-5 border rounded p-4 m-2">
-          <h5>Registro de Nuevos Usuarios:</h5>
-          <p>
-            El registro en línea es rápido y seguro. Todo lo que necesita es su número de cliente y un número de referencia válido. Tendrá que ingresar su dirección de correo electrónico y los 4 últimos dígitos de su número de seguro social (RFC en México).
-          </p>
-          <button
-            className="btn btn-secondary w-100"
-            onClick={() => navigate("/register")}
-          >
-            Registro
-          </button>
+          <div className="mt-3 text-center">
+            <span>¿No tienes cuenta? </span>
+            <span
+              className="register-link"
+              onClick={() => navigate("/register")}
+              style={{ color: "#ed818b", textDecoration: "underline", cursor: "pointer", fontWeight: 600 }}
+            >
+              Regístrate
+            </span>
+          </div>
         </div>
       </div>
     </div>
