@@ -26,7 +26,7 @@ body{ background: var(--bg); font-family: 'Montserrat', Arial, sans-serif; color
   display:flex; align-items:center; justify-content:space-between;
   background: transparent;
 }
-.hero-nav .brand img{ height:28px; width:auto; }
+.hero-nav .brand img{ height:80px; width:auto; }
 
 .nav-icons .icon-btn{
   background: transparent; border: none; font-size: 20px; margin-left: 10px; cursor: pointer;

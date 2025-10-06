@@ -40,11 +40,11 @@ const App = () => {
 
   
   return (
-    <div className="d-flex h-100">
+    <div className="app-layout">
       <Sidebar />
-      <div className="flex-grow-1">
+      <div className="main-content">
         <Header />
-        <div className="container-fluid p-4">
+        <div className="content-area">
           <Routes>
             <Route path="/dashboard" element={<Dashboard onLogout={handleLogout} />} />
             <Route path="/statements" element={<Statements />} />

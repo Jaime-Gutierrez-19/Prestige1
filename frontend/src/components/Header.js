@@ -1,14 +1,16 @@
 import React from "react";
-import "./Header.css"; // No olvides crear este archivo
+import "./Header.css";
 
-const Header = ({ onLogout }) => {
+const Header = ({ setIsAuthenticated }) => {
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+  };
+
   return (
-    <header className="header">
-      <div className="header-left">
-        <span className="header-welcome">Bienvenido, usuario</span>
-      </div>
-      <div className="header-right">
-        <button className="btn-header" onClick={onLogout}>
+    <header className="main-header">
+      <div className="header-content">
+        <h1 className="page-title">Bienvenido, usuario</h1>
+        <button className="logout-btn" onClick={handleLogout}>
           Cerrar sesión
         </button>
       </div>

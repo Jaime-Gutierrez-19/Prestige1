@@ -22,7 +22,7 @@ const Login = ({ setIsAuthenticated }) => {
     <div className="hero-page">
       <header className="hero-nav">
         <div className="brand">
-          <img src="/royal.png" alt="Royal" />
+          <img src="./logoRoyal.png" alt="Royal" />
         </div>
         <nav className="nav-icons">
           <button aria-label="user" className="icon-btn">👤</button>

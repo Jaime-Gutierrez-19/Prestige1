@@ -1,41 +1,50 @@
-.header {
-  background: #2266c1;
+.main-header {
+  background: linear-gradient(90deg, #1f7ed1 0%, #0f6fc6 100%);
   color: #fff;
-  padding: 1.4rem 2.2rem 1.4rem 240px; /* left padding igual ancho de Sidebar */
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(31, 126, 209, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 70px;
-  box-shadow: 0 2px 18px rgba(40,80,160,0.10);
-  position: sticky;
-  top: 0;
-  z-index: 3;
+  padding: 1.2rem 2rem;
+  max-width: 100%;
 }
 
-.header-left {
-  font-weight: 700;
-  font-size: 1.25rem;
-}
-
-.header-right .btn-header {
-  background-color: #ed818b;
-  border: none;
-  border-radius: 22px;
-  color: #fff;
-  padding: 0.75rem 2rem;
+.page-title {
+  font-size: 1.5rem;
   font-weight: 600;
-  font-size: 1.05rem;
-  box-shadow: 0 2px 13px rgba(220,50,90,0.11);
-  transition: background 0.15s;
-  cursor: pointer;
-}
-.header-right .btn-header:hover {
-  background: #ba3057;
+  margin: 0;
+  color: #fff;
 }
 
-@media (max-width: 900px) {
-  .header {
-    padding-left: 145px;
-    font-size: 1rem;
+.logout-btn {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.6rem 1.4rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #ed818b;
+  border-color: #ed818b;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .header-content {
+    padding: 1rem 1.5rem;
+  }
+  .page-title {
+    font-size: 1.3rem;
   }
 }
