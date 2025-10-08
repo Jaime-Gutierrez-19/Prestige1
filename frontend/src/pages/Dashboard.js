@@ -13,27 +13,23 @@ export const Dashboard = ({ onLogout }) => {
   };
 
   return (
-     <div className="dashboard">
-      <h2>Bienvenido a tu Dashboard</h2>
-      <div className="row">
-        <div className="col">
-          <Card title="Saldo disponible" value={dummyData.balance} />
-        </div>
-        <div className="col">
-          <Card title="Pagos próximos" value={dummyData.paymentsDue} />
-        </div>
+    <div className="dashboard-container">
+      <h2 className="dashboard-title">Bienvenido a tu Dashboard</h2>
+      <div className="dashboard-cards">
+        <Card title="Saldo disponible" value={dummyData.balance} />
+        <Card title="Pagos próximos" value={dummyData.paymentsDue} />
       </div>
-      <div className="notifications">
+      <div className="dashboard-notifications card">
         <h3>Notificaciones</h3>
         <ul>
           {dummyData.notifications.map((notification, index) => (
             <li key={index}>{notification}</li>
           ))}
         </ul>
-        <button onClick={onLogout}>Cerrar sesión</button>
+        <button className="btn-primary" onClick={onLogout}>Cerrar sesión</button>
       </div>
     </div>
   );
 };
 
-
+export default Dashboard;

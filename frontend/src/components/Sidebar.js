@@ -8,7 +8,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="sidebar-logo mb-4">
         
-        <img src="/logor.png" alt="Royal Prestige" style={{width: '75px'}}/> 
+        <img src="/logoRoyal.png" alt="Royal Prestige" style={{width: '75px'}}/> 
         <h2 className="sidebar-title">Royal<br/>Prestige</h2>
       </div>
       <nav>

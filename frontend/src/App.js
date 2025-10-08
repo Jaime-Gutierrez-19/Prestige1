@@ -12,6 +12,8 @@ import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
+import "./App.css";
+
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
