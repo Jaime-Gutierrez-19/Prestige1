@@ -1,5 +1,10 @@
 import React from "react";
 
+const statusColor = {
+  Completado: "#31ca54",
+  Pendiente: "#ed818b",
+};
+
 const PaymentHistory = () => {
   const payments = [
     { date: "2025-09-01", amount: "$500.00", method: "Tarjeta de crédito", status: "Completado" },
@@ -7,9 +12,9 @@ const PaymentHistory = () => {
   ];
 
   return (
-    <div>
-      <h2>Historial de Pagos</h2>
-      <table className="table">
+    <div className="payment-history-container card">
+      <h2 className="payment-history-title">Historial de Pagos</h2>
+      <table className="payments-table">
         <thead>
           <tr>
             <th>Fecha</th>
@@ -24,7 +29,16 @@ const PaymentHistory = () => {
               <td>{payment.date}</td>
               <td>{payment.amount}</td>
               <td>{payment.method}</td>
-              <td>{payment.status}</td>
+              <td>
+                <span
+                  className="status-label"
+                  style={{
+                    background: statusColor[payment.status],
+                  }}
+                >
+                  {payment.status}
+                </span>
+              </td>
             </tr>
           ))}
         </tbody>

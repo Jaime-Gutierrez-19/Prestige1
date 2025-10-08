@@ -11,6 +11,9 @@ import Contracts from "./pages/Contracts";
 import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import ForgotPassword from "./pages/ForgotPassword";
+import "./App.css";
+
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -39,11 +42,11 @@ const App = () => {
 
   
   return (
-    <div className="d-flex h-100">
+    <div className="app-layout">
       <Sidebar />
-      <div className="flex-grow-1">
+      <div className="main-content">
         <Header />
-        <div className="container-fluid p-4">
+        <div className="content-area">
           <Routes>
             <Route path="/dashboard" element={<Dashboard onLogout={handleLogout} />} />
             <Route path="/statements" element={<Statements />} />
@@ -54,6 +57,7 @@ const App = () => {
             <Route path="/settings" element={<Settings />} />
             <Route path="/" element={<Dashboard onLogout={handleLogout} />} />
             <Route path="*" element={<Dashboard onLogout={handleLogout} />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
           </Routes>
         </div>
       </div>

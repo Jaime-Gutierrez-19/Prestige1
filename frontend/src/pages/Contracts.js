@@ -1,4 +1,5 @@
 import React from "react";
+import { FaFilePdf } from "react-icons/fa"; // Si tienes react-icons instalado
 
 const Contracts = () => {
   const contracts = [
@@ -7,13 +8,22 @@ const Contracts = () => {
   ];
 
   return (
-    <div>
-      <h2>Contratos</h2>
-      <ul>
+    <div className="contracts-container card">
+      <h2 className="contracts-title">Contratos</h2>
+      <ul className="contracts-list">
         {contracts.map((contract, index) => (
-          <li key={index}>
-            {contract.name} - {contract.date} 
-            <button>Ver/Descargar PDF</button>
+          <li className="contract-item" key={index}>
+            <div>
+              <div className="contract-name">{contract.name}</div>
+              <div className="contract-date">
+                <span>Fecha: </span>
+                {contract.date}
+              </div>
+            </div>
+            <button className="btn-pdf">
+              <FaFilePdf style={{ marginRight: 6, fontSize: 18 }} />
+              Ver/Descargar PDF
+            </button>
           </li>
         ))}
       </ul>
